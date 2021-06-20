@@ -1,0 +1,130 @@
+<div id="index">   
+    <body>
+        <div class="wrap">
+            <div class="intro">
+                <div class="header">
+                    <ul class="nav">
+                        <li><a href="#link_header">HOME</a></li>
+                        <li><a href="#link_main_text1">DEPARTMENT</a></li>
+                        <li><a href="#link_main_text2">ACTIVITY</a></li>
+                        <li><a href="#link_main_text3">ASK</a></li>
+                    </ul>
+                </div>
+                <div class="intro_text">
+                <h1>캄보딜라이트</h1>
+                <h5>“Delicious bread with the warmest heart”</h5>
+                </div>    
+            </div>
+            <ul class="middlebox">
+                <li>
+                    <div>
+                        <div class="content1">소속</div>
+                        <div class="content2">자유전공학부</div>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <div class="content1">설립연도</div>
+                        <div class="content2">2017년</div>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <div class="content1">회원 수</div>
+                        <div class="content2">23명</div>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="main_text1" id="link_main_text1">
+                <h1>DEPARTMENT</h1>
+                <div class="content1">캄보딜라이트의 부서를 소개합니다</div>
+                
+                <ul class="icon">
+                    <li>
+                        <div class="icon_img">
+                            <img src="../assets/images/plan.png">
+                        </div>
+                        <div class="content1_bold">기획부</div>
+                        <div class="content3">
+                            행사를 직접 기획하고, 전반적인 회계를 담당합니다.
+                        </div>
+                    </li>
+                    <li>
+                        <div class="icon_img">
+                            <img src="../assets/images/design.png">
+                        </div>
+                        <div class="content1_bold">디자인부</div>
+                        <div class="content3">
+                            동아리 홍보 포스터를 제작하고, 판매빵 패키지를 디자인합니다.
+                        </div>
+                    </li>   
+                    <li>
+                        <div class="icon_img">
+                            <img src="../assets/images/promote.png">
+                        </div>
+                        <div class="content1_bold">홍보부</div>
+                        <div class="content3">
+                            동아리 활동을 카드뉴스와 같이 다양한 형식을 활용하여 정기적으로 SNS에 업로드합니다.
+                        </div>
+                    </li>
+            
+            </div>
+
+            <div class="main_text2" id="link_main_text2">
+                <h1>ACTIVITY</h1>
+                <div class="content1">캄보딜라이트의 주요 활동을 소개합니다</div>
+                
+                <ul class="icon">
+                    <li>
+                        <div class="picture">
+                            <img src="/blog/app/assets/images/friendly.jpg" width=200px height=200px>
+                        </div>
+                        <div class="content1_bold">친목 베이킹</div>
+                    </li>
+                    <li>
+                        <div class="picture">
+                            <img src="../assets/images/sell.jpg" width=200px height=200px>
+                        </div>
+                        <div class="content1_bold">판매빵 베이킹</div>
+                    </li>   
+                    <li>
+                        <div class="picture">
+                            <img src="../assets/images/dessert.jpg" width=200px height=200px>
+                        </div>
+                        <div class="content1_bold">디저트 탐방</div>
+                    </li>
+                </ul>
+            </div>        
+                    
+            <div class="main_text3" id="link_main_text3">
+                <h1>ASK</h1>
+                <div class="content1">캄보딜라이트에 대한 문의사항이 있으신가요?</div>
+                <div class="askbox">    
+                <a href="/post/new">질문하기</a><br /><br />
+                <% @posts.each do |p|%>
+                    <p>제목 : <%= p.title %></p><br />
+                    <p>내용 : <%= p.content %></p><br />
+                <a href="/post/edit/<%= p.id %>">[수정]</a>
+                <form action="/post/destroy/<%= p.id %>" method="post">
+                    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                    <input type="submit" name="" value="삭제">
+                </form>
+                <hr />
+                <% end %> 
+                </div>
+            </div>
+            
+        </div>   
+
+
+
+    </body>
+</div>
+</html>        
+
+
+
+
+
+
